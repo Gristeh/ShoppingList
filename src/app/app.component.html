@@ -1,0 +1,33 @@
+<div class='container-fluid'>
+    <div class='row'>
+      <div class='col-sm-12 body-content'>
+          <h1>Shopping List</h1>
+      </div>
+    </div>        
+    <div class='row'>
+            <div class='col-sm-12'>
+                <nav>
+                    <li>
+                        <a routerLink="/list" routerLinkActive="active">Create New Shopping List</a>
+                    </li>
+                    <li>
+                        <a routerLink="/load" routerLinkActive="active">Load a Saved Shopping List</a>
+                    </li>
+                    <li>
+                        <a routerLink="/account" routerLinkActive="active">Your account</a>
+                    </li>
+                    <li>
+                        <a routerLink="/about" routerLinkActive="active">About us</a>
+                    </li>
+                    <li>
+                        <a routerLink="/contact" routerLinkActive="active">Contact</a>
+                    </li>
+                </nav>
+            </div>
+          </div>
+    <div class='row'>
+      <div class='col-sm-12 body-content'>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
