@@ -7,17 +7,7 @@ import { ListItem } from "src/app/models/list-item";
   styleUrls: ["./shopping-list-component.component.css"],
 })
 export class ShoppingListComponentComponent implements OnInit {
-  currentItemList: ListItem[] = [];
-  previousItemList: ListItem[] = [];
-
-  constructor() {
-
-    this.previousItemList=[ItemID: number;
-      ItemName: string;
-      ListID: number;
-      HighPriority: boolean;
-      Index:]
-  }
+  constructor() {}
 
   ngOnInit() {}
 }
