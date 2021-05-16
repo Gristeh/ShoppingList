@@ -8,6 +8,7 @@ import { ListItem } from "src/app/models/list-item";
 })
 export class ShoppingListComponentComponent implements OnInit {
   constructor() {}
+}
 
   ngOnInit() {}
 }
