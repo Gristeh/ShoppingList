@@ -8,15 +8,63 @@ import { ShoppingList } from "src/app/models/shopping-list";
   styleUrls: ["./shopping-list-component.component.css"],
 })
 export class ShoppingListComponentComponent implements OnInit {
-  // currentItemList: ListItem[] = [];
-  // previousItemList: ListItem[] = [];
+  currentItemList: ShoppingList;
+  previousItemList: ListItem[] = [
+    {
+      ItemID: 1,
+      ItemName: "Bananas",
+      ListID: 1,
+      HighPriority: false,
+      Index: 0,
+    },
+    {
+      ItemID: 2,
+      ItemName: "Biscuits",
+      ListID: 1,
+      HighPriority: false,
+      Index: 1,
+    },
+    {
+      ItemID: 3,
+      ItemName: "Bread",
+      ListID: 1,
+      HighPriority: true,
+      Index: 2,
+    },
+    {
+      ItemID: 4,
+      ItemName: "Cereal",
+      ListID: 1,
+      HighPriority: false,
+      Index: 3,
+    },
+    {
+      ItemID: 5,
+      ItemName: "Milk",
+      ListID: 1,
+      HighPriority: true,
+      Index: 4,
+    },
+    {
+      ItemID: 6,
+      ItemName: "Sugar",
+      ListID: 1,
+      HighPriority: false,
+      Index: 5,
+    },
+    {
+      ItemID: 7,
+      ItemName: "Tea bags",
+      ListID: 1,
+      HighPriority: false,
+      Index: 6,
+    },
+  ];
 
   constructor() {
-    // this.previousItemList=[ItemID: number;
-    //   ItemName: string;
-    //   ListID: number;
-    //   HighPriority: boolean;
-    //   Index:]
+    {
+      console.log(this.previousItemList);
+    }
   }
 
   ngOnInit() {}
