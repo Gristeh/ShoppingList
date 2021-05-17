@@ -22,7 +22,11 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-4 border"></div>
+        <div class="col-4 border">
+          <p *ngFor="let item of currentItemList.ShoppingListItems">
+            {{ item.ItemName }}
+          </p>
+        </div>
         <div class="col-1">
           <div class="btn-group-vertical">
             <button type="button" class="btn btn-outline-dark">&#x25B6;</button>
@@ -35,7 +39,9 @@
             <button type="button" class="btn btn-outline-dark">&#x25BC;</button>
           </div>
         </div>
-        <div class="col-4 border"></div>
+        <div class="col-4 border">
+          <p *ngFor="let item of previousItemList">{{ item.ItemName }}</p>
+        </div>
       </div>
       <span class="btn-group">
         <button type="button" class="btn btn-outline-dark">Save List</button>

@@ -1,6 +1,11 @@
 import { ListItem } from "./list-item";
 
 export class ShoppingList {
-  ShoppingListID: number;
-  ShoppingListItems: ListItem[] = [];
+  ShoppingListName: String;
+  ShoppingListItems: ListItem[];
+
+  constructor(shoppingListName) {
+    this.ShoppingListName = shoppingListName;
+    this.ShoppingListItems = [];
+  }
 }
