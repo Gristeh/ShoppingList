@@ -1,3 +1,35 @@
-#btnStacked {
-  display: block;
+/* CSS adapted from code available in Angular tutorial available at https://angular.io/tutorial/toh-pt2#final-code-review */
+
+.itemList {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+.itemList li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #eee;
+  margin: 0.5em;
+  padding: 0.3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.itemList li:hover {
+  color: #2c3a41;
+  background-color: #e6e6e6;
+  left: 0.1em;
+}
+.itemList li.selected {
+  background-color: black;
+  color: white;
+}
+.itemList li.selected:hover {
+  background-color: #505050;
+  color: white;
+}
+.itemList li.selected:active {
+  background-color: black;
+  color: white;
 }
