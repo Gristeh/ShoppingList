@@ -1,8 +1,9 @@
 import { listLazyRoutes } from "@angular/compiler/src/aot/lazy_routes";
 import { Component, OnInit } from "@angular/core";
-import { exists } from "fs";
 import { ListItem } from "src/app/models/list-item";
 import { ShoppingList } from "src/app/models/shopping-list";
+import { AppModule } from "src/app/app.module";
+import { throwMatDuplicatedDrawerError } from "@angular/material";
 
 @Component({
   selector: "app-shopping-list-component",
@@ -102,6 +103,30 @@ export class ShoppingListComponentComponent implements OnInit {
         this.currentItemListItems.splice(i, 1);
         i--;
       }
+    }
+  }
+
+  // Adds a new item to the Current shopping list. If item with same name exists user is warned
+  createItem(itemName: string) {
+    let newItemID =
+      this.previousItemList.length + this.currentItemListItems.length + 1;
+    let newIndex = newItemID - 1;
+    let newItem = new ListItem(newItemID, itemName, 1, false, newIndex);
+    if (
+      !this.isItemPresent(this.currentItemListItems, itemName) &&
+      !this.isItemPresent(this.previousItemList, itemName)
+    ) {
+      this.selectedItem = newItem;
+      this.currentItemListItems.push(newItem);
+    } else {
+      alert("Item already Exists!");
+    }
+  }
+
+  // Check if object.value exists within array
+  isItemPresent(anArray: any[], anItemName: String): boolean {
+    if (anArray.some((ListItem) => ListItem.ItemName === anItemName)) {
+      return true;
     }
   }
 }

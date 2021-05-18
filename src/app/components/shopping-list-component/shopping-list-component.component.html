@@ -20,9 +20,28 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-4 border">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="enter grocery items"
+          id="newItemName"
+          [(ngModel)]="newItem"
+        />
+        <button
+          type="button"
+          (click)="createItem(newItem)"
+          name="createItem"
+          type="button"
+          class="btn btn-outline-dark"
+        >
+          Add Item
+        </button>
+      </div>
+
+      <div class="row">
+        <div class="col-3 border">
           <ul class="itemList">
             <li
               *ngFor="let item of currentItemListItems"
@@ -33,8 +52,8 @@
             </li>
           </ul>
         </div>
-        <div class="col-1">
-          <div class="btn-group-vertical">
+        <div class="col-md-auto">
+          <div class="btn-group-vertical float-center">
             <button
               (click)="removeItem()"
               name="moveRight"
@@ -63,7 +82,7 @@
             </button>
           </div>
         </div>
-        <div class="col-4 border">
+        <div class="col-3 border">
           <ul class="itemList">
             <li
               *ngFor="let item of previousItemList"
@@ -75,13 +94,24 @@
           </ul>
         </div>
       </div>
+      <br />
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-md-auto">
+          <button type="button" class="btn btn-outline-dark">Edit Item</button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-outline-dark float-right">
+            Delete Item
+          </button>
+        </div>
+      </div>
+      <br /><br />
       <span class="btn-group">
         <button type="button" class="btn btn-outline-dark">Save List</button>
         <button type="button" class="btn btn-outline-dark">Clear List</button>
         <button type="button" class="btn btn-outline-dark">Load List</button>
       </span>
-
-      <div id="itemList"></div>
     </div>
   </body>
 </html>
