@@ -1,9 +1,6 @@
-import { listLazyRoutes } from "@angular/compiler/src/aot/lazy_routes";
 import { Component, OnInit } from "@angular/core";
 import { ListItem } from "src/app/models/list-item";
 import { ShoppingList } from "src/app/models/shopping-list";
-import { AppModule } from "src/app/app.module";
-import { throwMatDuplicatedDrawerError } from "@angular/material";
 
 @Component({
   selector: "app-shopping-list-component",
