@@ -152,7 +152,7 @@ export class ShoppingListComponentComponent implements OnInit {
     }
   }
 
-  // Deletes item from
+  // Deletes item from previousItemList. User is prompted to confirm deletion.
   deleteItem(): void {
     if (this.previousItemList.includes(this.selectedItem)) {
       if (
