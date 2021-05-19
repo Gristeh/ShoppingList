@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ɵɵsetComponentScope } from "@angular/core";
 import { ListItem } from "src/app/models/list-item";
 import { ShoppingList } from "src/app/models/shopping-list";
 
@@ -103,7 +103,8 @@ export class ShoppingListComponentComponent implements OnInit {
     }
   }
 
-  // Adds a new item to the Current shopping list. If item with same name exists user is warned
+  // Adds a new item to the Current shopping list. User is alerted if item name is empty or
+  // an item with same name exists
   createItem(itemName: string) {
     let newItemID =
       this.previousItemList.length + this.currentItemListItems.length + 1;
@@ -132,7 +133,8 @@ export class ShoppingListComponentComponent implements OnInit {
     }
   }
 
-  // Edits existing item
+  // Edits name of existing item. User is alerted if item name is empty or
+  // an item with same name exists
   editItem(): void {
     let newName = prompt(
       "Please edit the item name:",
@@ -147,6 +149,29 @@ export class ShoppingListComponentComponent implements OnInit {
       alert("Item already Exists!");
     } else {
       this.selectedItem.ItemName = newName;
+    }
+  }
+
+  // Deletes item from
+  deleteItem(): void {
+    if (this.previousItemList.includes(this.selectedItem)) {
+      if (
+        confirm(
+          "Do you want to remove " +
+            this.selectedItem.ItemName +
+            " from the list?"
+        ) == true
+      ) {
+        for (var i = 0; i < this.previousItemList.length; i++) {
+          if (this.previousItemList[i] === this.selectedItem) {
+            console.log(i);
+            console.log(this.selectedItem);
+            this.previousItemList.splice(i, 1);
+            i--;
+            console.log(i);
+          }
+        }
+      }
     }
   }
 }
