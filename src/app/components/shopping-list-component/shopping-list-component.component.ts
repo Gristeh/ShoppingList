@@ -108,22 +108,45 @@ export class ShoppingListComponentComponent implements OnInit {
     let newItemID =
       this.previousItemList.length + this.currentItemListItems.length + 1;
     let newIndex = newItemID - 1;
-    let newItem = new ListItem(newItemID, itemName, 1, false, newIndex);
-    if (
-      !this.isItemPresent(this.currentItemListItems, itemName) &&
-      !this.isItemPresent(this.previousItemList, itemName)
-    ) {
-      this.selectedItem = newItem;
-      this.currentItemListItems.push(newItem);
+    let newItemName = prompt("Please enter a new item:");
+    if (newItemName != "") {
+      let newItem = new ListItem(newItemID, newItemName, 1, false, newIndex);
+      if (
+        !this.isItemPresent(this.currentItemListItems, newItemName) &&
+        !this.isItemPresent(this.previousItemList, newItemName)
+      ) {
+        this.selectedItem = newItem;
+        this.currentItemListItems.push(newItem);
+      } else {
+        alert("Item already Exists!");
+      }
     } else {
-      alert("Item already Exists!");
+      alert("Please enter a valid name:");
     }
   }
 
-  // Check if object.value exists within array
+  // Check if listItem.itemName already exists within an array
   isItemPresent(anArray: any[], anItemName: String): boolean {
     if (anArray.some((ListItem) => ListItem.ItemName === anItemName)) {
       return true;
+    }
+  }
+
+  // Edits existing item
+  editItem(): void {
+    let newName = prompt(
+      "Please edit the item name:",
+      this.selectedItem.ItemName
+    );
+    if ((newName = "")) {
+      alert("Please enter a valid name:");
+    } else if (
+      !this.isItemPresent(this.currentItemListItems, newName) &&
+      !this.isItemPresent(this.previousItemList, newName)
+    ) {
+      alert("Item already Exists!");
+    } else {
+      this.selectedItem.ItemName = newName;
     }
   }
 }
