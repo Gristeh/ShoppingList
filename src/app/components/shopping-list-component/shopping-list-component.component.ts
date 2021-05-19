@@ -140,15 +140,17 @@ export class ShoppingListComponentComponent implements OnInit {
       "Please edit the item name:",
       this.selectedItem.ItemName
     );
-    if ((newName = "")) {
-      alert("Please enter a valid name:");
-    } else if (
-      !this.isItemPresent(this.currentItemListItems, newName) &&
-      !this.isItemPresent(this.previousItemList, newName)
-    ) {
-      alert("Item already Exists!");
+    if (newName != "") {
+      if (
+        !this.isItemPresent(this.currentItemListItems, newName) &&
+        !this.isItemPresent(this.previousItemList, newName)
+      ) {
+        this.selectedItem.ItemName = newName;
+      } else {
+        alert("Item already Exists!");
+      }
     } else {
-      this.selectedItem.ItemName = newName;
+      alert("Please enter a valid name:");
     }
   }
 
