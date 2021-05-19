@@ -55,11 +55,17 @@
               </button>
               <br />
               <br />
-              <button name="moveUp" type="button" class="btn btn-outline-dark">
+              <button
+                (click)="moveItemUp()"
+                name="moveUp"
+                type="button"
+                class="btn btn-outline-dark"
+              >
                 &#x25B2;
               </button>
               <br />
               <button
+                (click)="moveItemDown()"
                 name="moveDown"
                 type="button"
                 class="btn btn-outline-dark"
