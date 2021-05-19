@@ -179,28 +179,36 @@ export class ShoppingListComponentComponent implements OnInit {
 
   //Allows user to move position of selected item up the list of current items.
   moveItemUp(): void {
-    let index = this.currentItemListItems.indexOf(this.selectedItem);
-    if (this.currentItemListItems.length > 1 && index > 0) {
-      [this.currentItemListItems[index], this.currentItemListItems[index - 1]] =
+    if (this.currentItemListItems.includes(this.selectedItem)) {
+      let index = this.currentItemListItems.indexOf(this.selectedItem);
+      if (this.currentItemListItems.length > 1 && index > 0) {
         [
+          this.currentItemListItems[index],
+          this.currentItemListItems[index - 1],
+        ] = [
           this.currentItemListItems[index - 1],
           this.currentItemListItems[index],
         ];
+      }
     }
   }
 
   //Allows user to move position of selected item down the list of current items.
   moveItemDown(): void {
-    let index = this.currentItemListItems.indexOf(this.selectedItem);
-    if (
-      this.currentItemListItems.length > 1 &&
-      index < this.currentItemListItems.length - 1
-    ) {
-      [this.currentItemListItems[index], this.currentItemListItems[index + 1]] =
+    if (this.currentItemListItems.includes(this.selectedItem)) {
+      let index = this.currentItemListItems.indexOf(this.selectedItem);
+      if (
+        this.currentItemListItems.length > 1 &&
+        index < this.currentItemListItems.length - 1
+      ) {
         [
+          this.currentItemListItems[index],
+          this.currentItemListItems[index + 1],
+        ] = [
           this.currentItemListItems[index + 1],
           this.currentItemListItems[index],
         ];
+      }
     }
   }
 }
